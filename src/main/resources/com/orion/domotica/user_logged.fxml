@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21"
+            fx:controller="com.orion.domotica.UserLoggedController"
+            xmlns:fx="http://javafx.com/fxml/1">
+	<top>
+		<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+			<Button fx:id="userBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+			        mnemonicParsing="false" onAction="#user" text="User" HBox.hgrow="ALWAYS"/>
+			<Button fx:id="deviceBtn" layoutX="184.0" layoutY="48.0" maxHeight="1.7976931348623157E308"
+			        maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#device" text="Device"
+			        HBox.hgrow="ALWAYS"/>
+			<Button fx:id="sceneBtn" layoutX="158.0" layoutY="48.0" maxHeight="1.7976931348623157E308"
+			        maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#scene" text="Scene"
+			        HBox.hgrow="ALWAYS"/>
+			<Button fx:id="actionBtn" layoutX="210.0" layoutY="48.0" maxHeight="1.7976931348623157E308"
+			        maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#action" text="Action"
+			        HBox.hgrow="ALWAYS"/>
+		</HBox>
+	</top>
+</BorderPane>
