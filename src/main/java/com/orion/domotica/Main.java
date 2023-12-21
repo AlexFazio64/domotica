@@ -65,7 +65,7 @@ public class Main extends Application {
 		}
 	}
 
-	public static void loadFromFile(String filename) {
+	public static void loadUser(String filename) {
 		// load the content from a file
 		// the file contains the users information in the following format:
 		// email;username;password;address;isAdmin
@@ -80,6 +80,37 @@ public class Main extends Application {
 			while (line != null) {
 				if (!line.isEmpty()) {
 					domotica.addUser(line);
+				}
+				line = reader.readLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (reader != null)
+					reader.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void loadDevice(String filename) {
+		// load the content from a file
+		// the file contains the users information in the following format:
+		// email;username;password;address;isAdmin
+
+		System.out.println("Loading from file: " + filename);
+
+		File file = new File(filename);
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(file));
+			String line = reader.readLine();
+			while (line != null) {
+				if (!line.isEmpty()) {
+					domotica.loadDevice(line);
 				}
 				line = reader.readLine();
 			}

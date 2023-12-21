@@ -25,7 +25,7 @@ public class RegisterController {
     }
 
     public void register(ActionEvent actionEvent) {
-        User user = new User(emailTxt.getText(), userTxt.getText(), passTxt.getText(), addrTxt.getText());
+        User user = Main.domotica.createUser(emailTxt.getText(), userTxt.getText(), passTxt.getText(), addrTxt.getText());
         Main.domotica.saveUser(user);
         Main.domotica.addUser(user.toString());
         Main.setScene("login.fxml");

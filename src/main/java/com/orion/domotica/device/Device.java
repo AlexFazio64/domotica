@@ -1,51 +1,51 @@
 package com.orion.domotica.device;
 
-public class Device {
-        private String deviceId;
-        private String deviceName;
-        private float param;
-        private boolean status;
-        private boolean isOnline;
+import java.util.ArrayList;
 
-        // Costruttore
-        public Device(String deviceId, String deviceName, float param,  boolean status) {
-            this.deviceId = deviceId;
-            this.deviceName = deviceName;
-            this.param = param;
-            this.status = status;
-        }
+public abstract class Device {
+    private String deviceId;
+    private String deviceName;
+    private ArrayList<Integer> owners;
 
-        // Metodo per ottenere i dettagli del dispositivo
-        public String getDetails() {
-            return "Device ID: " + deviceId + "\nDevice Name: " + deviceName + "\nStatus: " + (isOnline ? "Online" : "Offline");
-        }
+    // Costruttore
+    public Device(String deviceId, String deviceName, Integer owner) {
+        this.deviceId = deviceId;
+        this.deviceName = deviceName;
+        this.owners = new ArrayList<Integer>();
+        this.owners.add(owner);
+    }
 
+    // Metodo per aggiungere un nuovo proprietario
+    public void addOwner(int owner) {
+        this.owners.add(owner);
+    }
 
-        // Metodo per eseguire un'operazione sul dispositivo
-        public void performOperation(String operation) {
-            // Eseguire l'operazione sul dispositivo (es. accendere, spegnere, etc.)
-            System.out.println("Performing operation '" + operation + "' on device " + deviceName);
-        }
+    // Metodo per rimuovere un proprietario
+    public void removeOwner(int owner) {
+        this.owners.remove(owner);
+    }
 
-        // Metodo per ottenere il device ID
-        public String getDeviceId() {
-            return deviceId;
-        }
+    // Metodo per ottenere i dettagli del dispositivo
+    public String getDetails() {
+        return "Device ID: " + deviceId + "\nDevice Name: " + deviceName;
+    }
 
-        // Metodo per ottenere il nome del dispositivo
-        public String getDeviceName() {
-            return deviceName;
-        }
+    // Metodo per ottenere il device ID
+    public String getDeviceId() {
+        return deviceId;
+    }
 
-        // Metodo per ottenere il parametro del dispositivo
-        public float getParam() {
-            return param;
-        }
+    // Metodo per ottenere il nome del dispositivo
+    public String getDeviceName() {
+        return deviceName;
+    }
 
+    public ArrayList<Integer> getOwners() {
+        return owners;
+    }
 
-        // Metodo per verificare lo stato del dispositivo
-        public boolean checkStatus() {
-            return status;
-        }
-
+    @Override
+    public String toString() {
+        return deviceId + ";" + deviceName + ";" + owners;
+    }
 }

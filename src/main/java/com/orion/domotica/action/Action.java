@@ -27,8 +27,5 @@ public class Action {
     // Esegue l'azione automatica
     public void eseguiAzioneAutomatica(Device dispositivo) {
         System.out.println("Esecuzione dell'azione automatica '" + nomeAzione + "' su dispositivo " + dispositivo.getDeviceName());
-
-        // Esempio: Modifica dei parametri del dispositivo in base all'azione automatica
-        dispositivo.performOperation("turn_on");
     }
 }

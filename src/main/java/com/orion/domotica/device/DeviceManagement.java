@@ -17,19 +17,36 @@ public class DeviceManagement {
         deviceList.add(device);
     }
 
+    public Device getDeviceById(String deviceId) {
+        for (Device device : deviceList) {
+            if (device.getDeviceId().equals(deviceId)) {
+                return device;
+            }
+        }
+        return null;
+    }
+
     // Restituisce la lista di tutti i dispositivi
     public List<Device> getAllDevices() {
-        return new ArrayList<>(deviceList); // Ritorna una copia per evitare modifiche esterne non controllate
+        return new ArrayList<>(deviceList);
     }
 
-    // Esegue un'operazione su un dispositivo
-    public void performDeviceOperation(User user, Device device, String operation) {
-        if (user.isAdmin()) {
-            device.performOperation(operation);
-        } else {
-            System.out.println("Accesso negato. L'utente non ha i permessi necessari.");
+    public ArrayList<Device> getDevicesByUser(User user) {
+        ArrayList<Device> devices = new ArrayList<>();
+        for (Device device : deviceList) {
+            if (device.getOwners().contains((Integer) user.userId)) {
+                devices.add(device);
+            }
         }
+        return devices;
     }
 
-    // Altri metodi utili possono essere aggiunti in base alle esigenze...
+    public Device createDevice(String id, String name, ArrayList<Integer> owners, String status, String value) {
+
+        return null;
+    }
+
+    public void reset() {
+        deviceList.clear();
+    }
 }

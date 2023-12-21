@@ -6,6 +6,7 @@ import java.util.List;
 public class UserManagement {
     private User user;
     private List<User> userList;
+    private static int LastUserId = 1;
 
     public UserManagement() {
         this.user = null;
@@ -31,7 +32,7 @@ public class UserManagement {
 
     // Metodo per creare un nuovo utente amministratore
     public User createAdminUser(String username, String email, String password, String addr) {
-        User newAdminUser = new User(username, email, password, addr);
+        User newAdminUser = new User(LastUserId++, username, email, password, addr);
         userList.add(newAdminUser);
         return newAdminUser;
     }
@@ -67,5 +68,9 @@ public class UserManagement {
         userList.remove(u);
     }
 
-    
+    public void reset() {
+        userList.clear();
+        LastUserId = 1;
+    }
+
 }

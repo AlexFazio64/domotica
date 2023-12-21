@@ -17,12 +17,14 @@ public class LoginController {
 	PasswordField passTxt;
 
 	public void initialize() {
-		Main.loadFromFile(LoginController.class.getResource("users/users.txt").getPath());
 		userTxt.setText("admin");
-		passTxt.setText("root");
+		passTxt.setText("admin");
 	}
 
 	public void login(ActionEvent actionEvent) {
+		Main.loadUser(LoginController.class.getResource("users/users.txt").getPath());
+		Main.loadDevice(UserLoggedController.class.getResource("devices/devices.txt").getPath());
+
 		Main.domotica.login(userTxt.getText(), passTxt.getText());
 	}
 

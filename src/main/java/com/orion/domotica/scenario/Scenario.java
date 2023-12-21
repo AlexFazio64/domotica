@@ -30,17 +30,10 @@ public class Scenario {
         return new ArrayList<>(devices); // Ritorna una copia per evitare modifiche esterne non controllate
     }
 
-    // Esegue lo scenario
-    public void execute() {
-        System.out.println("Esecuzione dello scenario: " + scenarioName);
-        for (Device device : devices) {
-            device.performOperation("turn_on"); // Esempio di operazione da eseguire nello scenario
-        }
-    }
-
     // Verifica se l'utente è autorizzato ad eseguire lo scenario
     public boolean isUserAuthorized(User user) {
-        // Implementa la logica di autorizzazione, ad esempio, controlla il ruolo dell'utente
+        // Implementa la logica di autorizzazione, ad esempio, controlla il ruolo
+        // dell'utente
         return user.isAdmin();
     }
 }

@@ -26,15 +26,6 @@ public class ScenarioManagement {
         return new ArrayList<>(scenarioList); // Ritorna una copia per evitare modifiche esterne non controllate
     }
 
-    // Esegue uno scenario
-    public void executeScenario(User user, Scenario scenario) {
-        if (user.isAdmin() || scenario.isUserAuthorized(user)) {
-            scenario.execute();
-        } else {
-            System.out.println("Accesso negato. L'utente non ha i permessi necessari per eseguire lo scenario.");
-        }
-    }
-
     // Altri metodi utili possono essere aggiunti in base alle esigenze...
 }
 
